@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCFI Nagpur Chapter | Quick Links</title>
+    <title>QCFI Nagpur Chapter | Connect</title>
     <style>
-        /* ========================================================= */
-        /* EDIT HERE SANJAY: CHANGE BACKGROUND COLOR IN THE LINE BELOW */
-        :root {
-            --page-bg: #0d1e38; /* Change to #1c3d90, #111827, or any color */
+        /* ======================================================= */
+        /* EDIT HERE SANJAY: CHANGE BACKGROUND COLOR BELOW         */
+        /* Examples: #0f172a, #1c3d90, #182848, #000000, #ffffff   */
+        body {
+            background-color: #0d1e38;
         }
-        /* ========================================================= */
+        /* ======================================================= */
 
         * {
             box-sizing: border-box;
@@ -20,114 +21,115 @@
         }
 
         body {
-            background-color: var(--page-bg);
-            color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 15px;
+            color: #ffffff;
+            display: block;
+            padding: 20px 10px;
         }
 
-        .container {
-            width: 100%;
+        .wrapper {
             max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 2-Column Responsive Layout */
+        .flex-container {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            gap: 30px;
+            align-items: flex-start;
+            gap: 25px;
+            margin-top: 10px;
         }
 
-        /* Left Column: Flyer */
-        .flyer-box {
-            flex: 1 1 400px;
+        /* Left Side: Flyer Image Container */
+        .left-col {
+            flex: 1 1 380px;
             max-width: 460px;
+            min-width: 280px;
             background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
+            border-radius: 14px;
+            padding: 6px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
         }
 
-        .flyer-box img {
+        .left-col img {
             width: 100%;
             height: auto;
+            border-radius: 10px;
             display: block;
         }
 
-        /* Right Column: Buttons */
-        .actions-box {
+        /* Right Side: Button Links Container */
+        .right-col {
             flex: 1 1 420px;
-            max-width: 500px;
+            max-width: 480px;
+            min-width: 280px;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .heading-area h1 {
-            font-size: 26px;
+        .title-box {
+            margin-bottom: 5px;
+        }
+
+        .title-box h1 {
+            font-size: 24px;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 5px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .heading-area p {
+        .title-box p {
             font-size: 14px;
-            color: #9cbbf8;
-            margin-bottom: 10px;
+            color: #adc4f7;
+            margin-top: 4px;
         }
 
-        /* 4 Action Buttons */
-        .hub-btn {
+        /* Interactive Action Buttons */
+        .card-btn {
             display: flex;
             align-items: center;
             text-decoration: none;
-            padding: 16px;
+            padding: 16px 14px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.08);
+            background-color: #172a4d;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         }
 
-        .hub-btn:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Button Colors */
-        .btn-reg {
+        /* Color accents */
+        .card-btn.btn-reg {
             border-left: 6px solid #ffde59;
-            background: linear-gradient(90deg, #1c3d90 0%, #102456 100%);
+            background: #1c3d90;
         }
 
-        .btn-yt {
+        .card-btn.btn-yt {
             border-left: 6px solid #ff3333;
-            background: linear-gradient(90deg, #991414 0%, #3d0c0c 100%);
+            background: #2a1215;
         }
 
-        .btn-book {
+        .card-btn.btn-books {
             border-left: 6px solid #14b87a;
-            background: linear-gradient(90deg, #0e7a4b 0%, #0a2d1d 100%);
+            background: #0f2e22;
         }
 
-        .btn-call {
+        .card-btn.btn-phone {
             border-left: 6px solid #38bdf8;
-            background: linear-gradient(90deg, #165b99 0%, #0c2642 100%);
+            background: #132e4d;
         }
 
         .btn-icon {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 14px;
+            margin-right: 12px;
             flex-shrink: 0;
         }
 
@@ -138,131 +140,136 @@
         }
 
         .btn-text {
-            flex: 1;
+            flex-grow: 1;
         }
 
-        .btn-tag {
+        .badge {
             display: inline-block;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: bold;
+            text-transform: uppercase;
             padding: 2px 6px;
             border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
         }
 
-        .tag-reg { background: #ffde59; color: #000; }
-        .tag-yt { background: #ff3333; color: #fff; }
-        .tag-book { background: #14b87a; color: #fff; }
-        .tag-call { background: #38bdf8; color: #000; }
+        .badge-reg { background-color: #ffde59; color: #000000; }
+        .badge-yt  { background-color: #ff3333; color: #ffffff; }
+        .badge-bk  { background-color: #14b87a; color: #ffffff; }
+        .badge-ph  { background-color: #38bdf8; color: #000000; }
 
         .btn-title {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             color: #ffffff;
+            line-height: 1.2;
             margin-bottom: 2px;
         }
 
         .btn-sub {
             font-size: 12px;
             color: #d1dcff;
+            line-height: 1.3;
         }
 
         .btn-arrow {
-            font-size: 20px;
+            font-size: 18px;
             color: #ffffff;
-            margin-left: 10px;
-            opacity: 0.8;
+            margin-left: 8px;
+            flex-shrink: 0;
         }
 
         .footer {
-            width: 100%;
             text-align: center;
-            margin-top: 15px;
-            font-size: 13px;
-            color: #8faed9;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 25px;
             padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 13px;
+            color: #9cbbf8;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="wrapper">
+    <div class="flex-container">
 
-    <!-- Left Side: Flyer Image -->
-    <div class="flyer-box">
-        <img src="QCFI Membership.jpeg" 
-             alt="QCFI Membership Drive"
-             onerror="this.onerror=null; this.src='QCFI%20Membership.jpeg';">
-    </div>
-
-    <!-- Right Side: 4 Action Buttons -->
-    <div class="actions-box">
-        
-        <div class="heading-area">
-            <h1>QCFI Nagpur Chapter</h1>
-            <p>Empowering Individuals, Elevating Organizations</p>
+        <!-- Left Side: Flyer Image -->
+        <div class="left-col">
+            <img src="QCFI Membership.jpeg" 
+                 alt="QCFI Membership Drive" 
+                 onerror="this.onerror=null; this.src='QCFI%20Membership.jpeg';">
         </div>
 
-        <!-- 1. Membership Registration -->
-        <a href="https://qcfi.in/qcfihq/register.php" target="_blank" rel="noopener noreferrer" class="hub-btn btn-reg">
-            <div class="btn-icon">
-                <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <!-- Right Side: 4 Action Links -->
+        <div class="right-col">
+            
+            <div class="title-box">
+                <h1>QCFI Nagpur Chapter</h1>
+                <p>Empowering Individuals, Elevating Organizations</p>
             </div>
-            <div class="btn-text">
-                <span class="btn-tag tag-reg">Online Registration</span>
-                <div class="btn-title">Register as Member</div>
-                <div class="btn-sub">Join the Quality Movement &amp; unlock growth</div>
-            </div>
-            <div class="btn-arrow">&#10148;</div>
-        </a>
 
-        <!-- 2. YouTube Channel -->
-        <a href="http://www.youtube.com/@QCFINagpur" target="_blank" rel="noopener noreferrer" class="hub-btn btn-yt">
-            <div class="btn-icon">
-                <svg viewBox="0 0 24 24"><path d="M21.58 7.19a2.506 2.506 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.97.26-1.75 1.04-2 2.01C1.75 8.75 1.75 12 1.75 12s0 3.25.44 4.81c.25.97 1.03 1.75 2 2.01 1.56.43 7.81.43 7.81.43s6.25 0 7.81-.43c.97-.26 1.77-1.04 2.02-2.01.44-1.56.44-4.81.44-4.81s0-3.25-.44-4.81zM9.75 15.02V8.98l6 3.02-6 3.02z"/></svg>
-            </div>
-            <div class="btn-text">
-                <span class="btn-tag tag-yt">Video Hub</span>
-                <div class="btn-title">QCFI Nagpur YouTube Channel</div>
-                <div class="btn-sub">Case studies, conventions &amp; technical webinars</div>
-            </div>
-            <div class="btn-arrow">&#10148;</div>
-        </a>
+            <!-- Button 1: Registration -->
+            <a href="https://qcfi.in/qcfihq/register.php" target="_blank" rel="noopener noreferrer" class="card-btn btn-reg">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <div class="btn-text">
+                    <span class="badge badge-reg">Online Registration</span>
+                    <div class="btn-title">Register as Member</div>
+                    <div class="btn-sub">Join the National Quality Movement &amp; unlock growth</div>
+                </div>
+                <div class="btn-arrow">&#10148;</div>
+            </a>
 
-        <!-- 3. Books & Publications -->
-        <a href="https://www.qcfinagpur.in/books/" target="_blank" rel="noopener noreferrer" class="hub-btn btn-book">
-            <div class="btn-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
-            </div>
-            <div class="btn-text">
-                <span class="btn-tag tag-book">Knowledge Repository</span>
-                <div class="btn-title">QCFI Books &amp; Publications</div>
-                <div class="btn-sub">Order 5S, Kaizen, TPM &amp; QC manuals</div>
-            </div>
-            <div class="btn-arrow">&#10148;</div>
-        </a>
+            <!-- Button 2: YouTube -->
+            <a href="http://www.youtube.com/@QCFINagpur" target="_blank" rel="noopener noreferrer" class="card-btn btn-yt">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21.58 7.19a2.506 2.506 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.97.26-1.75 1.04-2 2.01C1.75 8.75 1.75 12 1.75 12s0 3.25.44 4.81c.25.97 1.03 1.75 2 2.01 1.56.43 7.81.43 7.81.43s6.25 0 7.81-.43c.97-.26 1.77-1.04 2.02-2.01.44-1.56.44-4.81.44-4.81s0-3.25-.44-4.81zM9.75 15.02V8.98l6 3.02-6 3.02z"/></svg>
+                </div>
+                <div class="btn-text">
+                    <span class="badge badge-yt">Video Hub</span>
+                    <div class="btn-title">QCFI Nagpur YouTube Channel</div>
+                    <div class="btn-sub">Case studies, conventions &amp; technical webinars</div>
+                </div>
+                <div class="btn-arrow">&#10148;</div>
+            </a>
 
-        <!-- 4. Contact Secretary -->
-        <a href="tel:+919823278003" class="hub-btn btn-call">
-            <div class="btn-icon">
-                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div class="btn-text">
-                <span class="btn-tag tag-call">Direct Contact</span>
-                <div class="btn-title">Contact Chapter Secretary</div>
-                <div class="btn-sub">Vivek Joshi &bull; Tap to call +91 98232 78003</div>
-            </div>
-            <div class="btn-arrow">&#10148;</div>
-        </a>
+            <!-- Button 3: Books -->
+            <a href="https://www.qcfinagpur.in/books/" target="_blank" rel="noopener noreferrer" class="card-btn btn-books">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                </div>
+                <div class="btn-text">
+                    <span class="badge badge-bk">Knowledge Repository</span>
+                    <div class="btn-title">QCFI Books &amp; Publications</div>
+                    <div class="btn-sub">Order 5S, Kaizen, TPM &amp; Quality Circle manuals</div>
+                </div>
+                <div class="btn-arrow">&#10148;</div>
+            </a>
+
+            <!-- Button 4: Contact Secretary -->
+            <a href="tel:+919823278003" class="card-btn btn-phone">
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <div class="btn-text">
+                    <span class="badge badge-ph">Direct Contact</span>
+                    <div class="btn-title">Contact Chapter Secretary</div>
+                    <div class="btn-sub">Vivek Joshi &bull; Tap to call +91 98232 78003</div>
+                </div>
+                <div class="btn-arrow">&#10148;</div>
+            </a>
+
+        </div>
 
     </div>
 
+    <!-- Footer -->
     <div class="footer">
         Quality Circle Forum of India &bull; Nagpur Chapter
     </div>
-
 </div>
 
 </body>
