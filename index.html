@@ -9,10 +9,9 @@
         :root {
             --qcfi-blue: #1c3d90;
             --qcfi-dark-blue: #0f2252;
-            --qcfi-gold: #f5a623;
             --qcfi-yellow: #ffde59;
-            --yt-red: #e62117;
-            --emerald-green: #0d8a5b;
+            --yt-red: #ff3333;
+            --emerald-green: #14b87a;
             --bg-gradient: linear-gradient(135deg, #0b1528 0%, #172a4d 50%, #0d1e38 100%);
             --card-bg: rgba(255, 255, 255, 0.08);
             --card-border: rgba(255, 255, 255, 0.18);
@@ -33,20 +32,33 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding: 16px 12px 32px 12px;
+            align-items: center;
+            padding: 24px 16px;
             color: var(--text-main);
         }
 
-        .container {
+        .main-wrapper {
             width: 100%;
-            max-width: 480px;
+            max-width: 1050px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
-        /* Top Flyer Container */
+        /* Responsive Side-by-Side Grid */
+        .portal-grid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* Left Side: Flyer Image */
+        .left-panel {
+            flex: 1 1 45%;
+            max-width: 480px;
+        }
+
         .poster-card {
             background: #ffffff;
             border-radius: 20px;
@@ -63,27 +75,33 @@
             object-fit: cover;
         }
 
-        /* Section Subheading */
+        /* Right Side: Action Hub */
+        .right-panel {
+            flex: 1 1 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .hub-tagline {
-            text-align: center;
-            padding: 4px 8px;
+            text-align: left;
+            padding-bottom: 4px;
         }
 
         .hub-tagline h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             letter-spacing: 0.5px;
             color: #ffffff;
             text-transform: uppercase;
         }
 
         .hub-tagline p {
-            font-size: 0.85rem;
+            font-size: 0.92rem;
             color: #adc4f7;
             margin-top: 4px;
         }
 
-        /* Action Buttons Area */
         .links-group {
             display: flex;
             flex-direction: column;
@@ -95,7 +113,7 @@
             align-items: center;
             text-decoration: none;
             position: relative;
-            padding: 16px 18px;
+            padding: 16px 20px;
             border-radius: 16px;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -106,208 +124,46 @@
             overflow: hidden;
         }
 
+        .action-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+        }
+
         .action-card:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
             filter: brightness(1.15);
         }
 
-        /* Specific Link Themes */
+        /* Specific Link Color Accents */
         .action-card.card-register {
             border-left: 6px solid var(--qcfi-yellow);
-            background: linear-gradient(90deg, rgba(28, 61, 144, 0.7) 0%, rgba(23, 42, 77, 0.85) 100%);
+            background: linear-gradient(90deg, rgba(28, 61, 144, 0.75) 0%, rgba(23, 42, 77, 0.85) 100%);
         }
 
         .action-card.card-youtube {
-            border-left: 6px solid #ff3333;
-            background: linear-gradient(90deg, rgba(140, 15, 15, 0.55) 0%, rgba(35, 15, 20, 0.85) 100%);
+            border-left: 6px solid var(--yt-red);
+            background: linear-gradient(90deg, rgba(140, 15, 15, 0.6) 0%, rgba(35, 15, 20, 0.85) 100%);
         }
 
         .action-card.card-books {
-            border-left: 6px solid #14b87a;
-            background: linear-gradient(90deg, rgba(13, 138, 91, 0.55) 0%, rgba(10, 36, 26, 0.85) 100%);
+            border-left: 6px solid var(--emerald-green);
+            background: linear-gradient(90deg, rgba(13, 138, 91, 0.6) 0%, rgba(10, 36, 26, 0.85) 100%);
         }
 
         .action-card.card-contact {
             border-left: 6px solid #4da3ff;
-            background: linear-gradient(90deg, rgba(20, 80, 160, 0.45) 0%, rgba(15, 30, 60, 0.75) 100%);
+            background: linear-gradient(90deg, rgba(20, 80, 160, 0.5) 0%, rgba(15, 30, 60, 0.75) 100%);
         }
 
         /* Icon Container */
         .icon-box {
             flex-shrink: 0;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 14px;
             background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .icon-box svg {
-            width: 26px;
-            height: 26px;
-            fill: #ffffff;
-        }
-
-        /* Text Details */
-        .text-box {
-            flex-grow: 1;
-            min-width: 0;
-        }
-
-        .badge-pill {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 2px 7px;
-            border-radius: 6px;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-reg { background: var(--qcfi-yellow); color: #000; }
-        .badge-yt { background: #ff3333; color: #fff; }
-        .badge-bk { background: #14b87a; color: #fff; }
-        .badge-call { background: #4da3ff; color: #fff; }
-
-        .card-title {
-            font-size: 1.02rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.25;
-            margin-bottom: 3px;
-        }
-
-        .card-caption {
-            font-size: 0.78rem;
-            color: var(--text-sub);
-            line-height: 1.35;
-        }
-
-        /* Arrow Indicator */
-        .arrow-box {
-            flex-shrink: 0;
-            margin-left: 10px;
-            opacity: 0.85;
-        }
-
-        .arrow-box svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-        }
-
-        /* Footer */
-        .footer-bar {
-            text-align: center;
-            padding-top: 10px;
-            font-size: 0.75rem;
-            color: #8da4d0;
-        }
-
-        .footer-bar span {
-            display: block;
-            margin-top: 2px;
-            font-weight: 600;
-            color: #bed5ff;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <!-- Top Flyer Image Container -->
-    <div class="poster-card">
-        <img class="poster-img" src="QCFI Membership.jpeg" alt="QCFI Membership Drive - Nagpur Chapter">
-    </div>
-
-    <!-- Portal Title -->
-    <div class="hub-tagline">
-        <h2>Quick Action Links</h2>
-        <p>Quality Circle Forum of India &bull; Nagpur Chapter</p>
-    </div>
-
-    <!-- Tappable Link Cards -->
-    <div class="links-group">
-
-        <!-- 1. Membership Registration Link -->
-        <a href="https://qcfi.in/qcfihq/register.php" target="_blank" rel="noopener noreferrer" class="action-card card-register">
-            <div class="icon-box">
-                <!-- User Plus Icon -->
-                <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            </div>
-            <div class="text-box">
-                <span class="badge-pill badge-reg">Online Registration</span>
-                <div class="card-title">Register as Member</div>
-                <div class="card-caption">Join the National Quality Movement &amp; unlock professional growth</div>
-            </div>
-            <div class="arrow-box">
-                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            </div>
-        </a>
-
-        <!-- 2. YouTube Channel Link -->
-        <a href="http://www.youtube.com/@QCFINagpur" target="_blank" rel="noopener noreferrer" class="action-card card-youtube">
-            <div class="icon-box">
-                <!-- YouTube Play Icon -->
-                <svg viewBox="0 0 24 24"><path d="M21.58 7.19a2.506 2.506 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.97.26-1.75 1.04-2 2.01C1.75 8.75 1.75 12 1.75 12s0 3.25.44 4.81c.25.97 1.03 1.75 2 2.01 1.56.43 7.81.43 7.81.43s6.25 0 7.81-.43c.97-.26 1.77-1.04 2.02-2.01.44-1.56.44-4.81.44-4.81s0-3.25-.44-4.81zM9.75 15.02V8.98l6 3.02-6 3.02z"/></svg>
-            </div>
-            <div class="text-box">
-                <span class="badge-pill badge-yt">Video Masterclasses</span>
-                <div class="card-title">QCFI Nagpur YouTube Channel</div>
-                <div class="card-caption">Watch case studies, technical webinars &amp; chapter events</div>
-            </div>
-            <div class="arrow-box">
-                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            </div>
-        </a>
-
-        <!-- 3. Books & Publications Link -->
-        <a href="https://www.qcfinagpur.in/books/" target="_blank" rel="noopener noreferrer" class="action-card card-books">
-            <div class="icon-box">
-                <!-- Library Books Icon -->
-                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
-            </div>
-            <div class="text-box">
-                <span class="badge-pill badge-bk">Knowledge Repository</span>
-                <div class="card-title">QCFI Handbooks &amp; Publications</div>
-                <div class="card-caption">Order 5S, Kaizen, TPM &amp; Quality Circle reference manuals</div>
-            </div>
-            <div class="arrow-box">
-                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            </div>
-        </a>
-
-        <!-- 4. Quick Secretary Contact Dial -->
-        <a href="tel:+919823278003" class="action-card card-contact">
-            <div class="icon-box">
-                <!-- Phone Call Icon -->
-                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div class="text-box">
-                <span class="badge-pill badge-call">Direct Assistance</span>
-                <div class="card-title">Contact Chapter Secretary</div>
-                <div class="card-caption">Vivek Joshi &bull; Call +91 98232 78003</div>
-            </div>
-            <div class="arrow-box">
-                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-            </div>
-        </a>
-
-    </div>
-
-    <!-- Footer -->
-    <div class="footer-bar">
-        Empowering Individuals, Elevating Organizations
-        <span>Quality Circle Forum of India - Nagpur Chapter</span>
-    </div>
-
-</div>
-
-</body>
-</html>
+            border:
